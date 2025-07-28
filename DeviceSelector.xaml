@@ -1,0 +1,30 @@
+<Window x:Class="my_cyber_cafe.DeviceSelector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Select Device" WindowStartupLocation="CenterScreen" Background="#18181A" ResizeMode="NoResize" WindowStyle="None" WindowState="Maximized" AllowsTransparency="False">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="600">
+            <TextBlock Text="Select Your Device" FontSize="32" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,40"/>
+            <ScrollViewer Height="180" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="DeviceCards">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#333" BorderThickness="1" CornerRadius="12" Margin="10" Padding="20,24" Background="#18181A" Width="250" Height="120">
+                                <StackPanel Orientation="Vertical" MouseLeftButtonUp="Card_Click" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="26" Foreground="White" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="PC" FontSize="16" Foreground="#b3b3b3" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+            <Button x:Name="RefreshBtn" Content="Refresh List" Width="140" Height="40" Margin="0,40,0,0" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Background="#23272A" Foreground="White" BorderBrush="#333" BorderThickness="1" Click="RefreshBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window> 
